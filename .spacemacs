@@ -55,7 +55,6 @@ This function should only modify configuration layer settings."
      git
      markdown
      org
-     orgwiki
      shell
      (shell :variables
             shell-default-shell 'multi-term
