@@ -15,7 +15,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 
-export EDITOR="emacsclient -c -tty"
+export EDITOR="emacs -nw"
 alias ed=$EDITOR
 
 # Load rbenv automatically by appending
