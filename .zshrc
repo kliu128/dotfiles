@@ -15,13 +15,17 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 
-export EDITOR=vim
+export EDITOR="emacsclient -c -tty"
+alias ed=$EDITOR
 
 # Load rbenv automatically by appending
 # the following to ~/.zshrc:
 
 export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init -)"
+
+export GPG_TTY=$(tty)
+gpg-connect-agent updatestartuptty /bye >/dev/null
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -37,3 +41,6 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+conda deactivate
+
+export PATH=$HOME/.local/bin:$PATH

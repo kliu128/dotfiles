@@ -230,6 +230,8 @@ input 9580:109:HID_256c:006d_Pen {
     map_to_region 1811 0 2349 1080
 }
 
+input 1739:6572:SYNA2393:00_06CB:19AC map_to_output eDP-1
+
 gaps outer 2
 gaps inner 2
 smart_gaps on
@@ -274,7 +276,8 @@ exec mako
 exec nm-applet --indicator
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
 exec ibus-daemon -drx
-exec_always sudo chrt -p --rr -a -v -R 99 $(pidof sway)
+exec redshift -l 42:-71 -m wayland
+exec_always sudo chrt -p --rr -a -v -R 99 $(pidof sway Xwayland)
 
 output eDP-1 pos 4160 0
 output eDP-1 scale 2
