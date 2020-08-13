@@ -31,27 +31,28 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/Personal Documents/Org Mode/")
 (after! org-agenda
-(setq org-agenda-files (file-expand-wildcards "~/Personal Documents/Org Mode/*.org"))
-(setq org-agenda-span 'week)
-(setq org-agenda-start-on-weekday nil)
-(setq org-agenda-skip-scheduled-if-done t)
-(setq org-agenda-skip-deadline-if-done t)
-(setq org-agenda-skip-deadline-prewarning-if-scheduled 365) ;; days
-(setq org-agenda-skip-scheduled-if-deadline-is-shown t)
-(setq org-agenda-compact-blocks t))
-  (setq org-startup-truncated nil)
-  (setq org-startup-indented t)
-  (setq org-startup-folded nil)
-  (setq org-startup-latex-with-latex-preview t)
+  (setq org-agenda-files (file-expand-wildcards "~/Personal Documents/Org Mode/*.org"))
+  (setq org-agenda-span 'week)
+  (setq org-agenda-start-on-weekday nil)
+  (setq org-agenda-skip-scheduled-if-done t)
+  (setq org-agenda-skip-deadline-if-done t)
+  (setq org-agenda-skip-deadline-prewarning-if-scheduled 365) ;; days
+  (setq org-agenda-skip-scheduled-if-deadline-is-shown t)
+  (setq org-agenda-compact-blocks t))
+(setq org-startup-truncated nil)
+(setq org-startup-indented t)
+(setq org-startup-folded nil)
+(setq org-startup-latex-with-latex-preview t)
+(setq org-blank-before-new-entry '((heading . always) (plain-list-item . auto)))
 
-  ;; Gray out metatasks until subtasks are complete
-  (setq org-enforce-todo-dependencies t)
-  (setq org-log-done (quote time))
-  (setq org-log-redeadline (quote time))
-  (setq org-log-reschedule (quote time))
+;; Gray out metatasks until subtasks are complete
+(setq org-enforce-todo-dependencies t)
+(setq org-log-done (quote time))
+(setq org-log-redeadline (quote time))
+(setq org-log-reschedule (quote time))
 (setq org-log-into-drawer t)
 
-  (setq org-extend-today-until 6)
+(setq org-extend-today-until 6)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -89,34 +90,34 @@
 (after! org-roam
   (setq org-roam-directory "~/Personal Documents/Org Mode/Roam"))
 
-  (defun kev-agenda ()
-    (interactive)
-    (let ((org-super-agenda-groups
-                         `((:name "Events"
-                                  :and (:time-grid t :todo nil))
-                           (:name "Upcoming"
-                                  ;; Anything due tomorrow, to-do during the day
-                                  :and (:not (:tag "@night")
-                                        :not (:scheduled future)
-                                        :deadline (before ,(org-read-date nil nil "+2d")))
-                                  :and (:not (:tag "@night") :habit t))
-                           (:name "Nightly"
-                                  :and (:not (:scheduled future) :tag "@night"))
-                           (:name "Someday"
-                                  :order 100
-                                  :todo ("SOMEDAY"))
-                           (:name "Future"
-                                  :order 101
-                                  :scheduled future)
-                           (:name "Important"
-                                  :priority "A")
-                           (:name "Blocked"
-                                  :order 99
-                                  :todo ("WAITING"))
-                           (:name "Backlog"
-                                  :order 98
-                                  :anything))))
-        (org-agenda-list)))
+(defun kev-agenda ()
+  (interactive)
+  (let ((org-super-agenda-groups
+         `((:name "Events"
+            :and (:time-grid t :todo nil))
+           (:name "Upcoming"
+            ;; Anything due tomorrow, to-do during the day
+            :and (:not (:tag "@night")
+                  :not (:scheduled future)
+                  :deadline (before ,(org-read-date nil nil "+2d")))
+            :and (:not (:tag "@night") :habit t))
+           (:name "Nightly"
+            :and (:not (:scheduled future) :tag "@night"))
+           (:name "Someday"
+            :order 100
+            :todo ("SOMEDAY"))
+           (:name "Future"
+            :order 101
+            :scheduled future)
+           (:name "Important"
+            :priority "A")
+           (:name "Blocked"
+            :order 99
+            :todo ("WAITING"))
+           (:name "Backlog"
+            :order 98
+            :anything))))
+    (org-agenda-list)))
 
 (map! :leader
       :desc "Open agenda"
