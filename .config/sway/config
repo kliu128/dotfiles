@@ -18,18 +18,19 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu rofi -show run
+set $menu wofi --show drun
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+#output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
+
 
 ### Idle configuration
 #
@@ -38,9 +39,11 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 exec swayidle -w \
     timeout 10 'if pgrep swaylock; then swaymsg "output * dpms off"; fi' \
     resume 'if pgrep swaylock; then swaymsg "output * dpms on"; fi' \
-    timeout 300 'swaylock' \
+    timeout 290 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"' \
-    before-sleep 'swaylock'
+    timeout 300 'swaylock -f' \
+    resume 'swaymsg "output * dpms on"' \
+    before-sleep 'swaylock -f'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -227,7 +230,7 @@ input 1739:52552:SYNA1D31:00_06CB:CD48_Touchpad {
 
 input 9580:109:HID_256c:006d_Pen {
     # 3.9 / 6.3 inches
-    map_to_region 1811 0 2349 1080
+    map_to_region 2416 0 1744 1080
 }
 
 input 1739:6572:SYNA2393:00_06CB:19AC map_to_output eDP-1
@@ -276,11 +279,11 @@ exec mako
 exec nm-applet --indicator
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
 exec ibus-daemon -drx
-exec redshift -l 42:-71 -m wayland
-exec_always sudo chrt -p --rr -a -v -R 99 $(pidof sway Xwayland)
+#exec redshift -l 42:-71 -m wayland
+exec_always sudo chrt --fifo -R -p -v -a 99 $(pidof sway Xwayland)
 
 output eDP-1 pos 4160 0
 output eDP-1 scale 2
 output DP-2 pos 1600 0
 output DP-1 pos 0 0
-bindsym Pause exec swaylock
+bindsym Ctrl+Alt+L exec swaylock

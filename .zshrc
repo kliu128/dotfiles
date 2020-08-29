@@ -43,4 +43,4 @@ unset __conda_setup
 # <<< conda initialize <<<
 conda deactivate
 
-export PATH=$HOME/.local/bin:$HOME/.emacs.d/bin:$PATH
+export PATH=$HOME/.local/bin:$HOME/.emacs.d/bin:$HOME/.gem/bin:$PATH
