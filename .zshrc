@@ -42,7 +42,7 @@ DISABLE_UPDATE_PROMPT="true"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -68,7 +68,6 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-export NVM_LAZY_LOAD=true
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-nvm)
 
 source $ZSH/oh-my-zsh.sh
@@ -103,7 +102,7 @@ alias k=kubectl
 
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 
-export EDITOR="emacs -nw"
+export EDITOR=vim
 alias ed=$EDITOR
 
 # Load rbenv automatically by appending
@@ -117,17 +116,17 @@ gpg-connect-agent updatestartuptty /bye >/dev/null
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-#__conda_setup="$('/home/kevin/.anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-#if [ $? -eq 0 ]; then
-#    eval "$__conda_setup"
-#else
-#    if [ -f "/home/kevin/.anaconda3/etc/profile.d/conda.sh" ]; then
-#        . "/home/kevin/.anaconda3/etc/profile.d/conda.sh"
-#    else
-#        export PATH="/home/kevin/.anaconda3/bin:$PATH"
-#    fi
-#fi
-#unset __conda_setup
+__conda_setup="$('/home/kevin/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/kevin/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/kevin/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/kevin/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
 # <<< conda initialize <<<
 #conda deactivate
 

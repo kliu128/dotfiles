@@ -128,11 +128,6 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
 
-eval "$(direnv hook bash)"
 alias k=kubectl
 source <(kubectl completion bash)
 complete -F __start_kubectl k
-export http_proxy='127.0.0.1:8888'
-export https_proxy='127.0.0.1:8888'
-export ftp_proxy=''
-export socks_proxy=''
