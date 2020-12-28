@@ -32,7 +32,8 @@
 (setq org-directory "~/Personal Documents/Org Mode/")
 (after! org-agenda
   (setq org-agenda-files (file-expand-wildcards "~/Personal Documents/Org Mode/*.org"))
-  (setq org-agenda-span 'week)
+  (setq org-agenda-span 1)
+  (setq org-agenda-start-day nil)
   (setq org-agenda-start-on-weekday nil)
   (setq org-agenda-skip-scheduled-if-done t)
   (setq org-agenda-skip-deadline-if-done t)
