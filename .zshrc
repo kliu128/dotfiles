@@ -68,7 +68,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-nvm)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -134,3 +134,5 @@ alias hmlb='ssh -t homelab-cluster TERM=xterm tmux attach'
 
 export PATH=$HOME/.local/bin:$HOME/.emacs.d/bin:$PATH
 
+export NVM_DIR=~/.nvm
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
