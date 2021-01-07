@@ -20,7 +20,7 @@ Comment[zh_CN]=手写注释工具，可为PDF文件添加各种元素的注释�
 Name[ru]=Xournal++
 Comment[ru]=Делайте рукописные заметки
 
-Exec=env GDK_BACKEND=x11 xournalpp %f
+Exec=env GDK_CORE_DEVICE_EVENTS= xournalpp %f
 Terminal=false
 StartupNotify=true
 MimeType=application/x-xoj;application/x-xojpp;application/x-xopp;application/x-xopt;application/pdf;

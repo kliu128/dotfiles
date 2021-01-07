@@ -132,7 +132,7 @@ unset __conda_setup
 
 alias hmlb='ssh -t homelab-cluster TERM=xterm tmux attach'
 
-export PATH=$HOME/.local/bin:$HOME/.emacs.d/bin:$PATH
+export PATH=$HOME/.local/bin:$HOME/.emacs.d/bin:$HOME/.yarn/bin:$PATH
 
 export NVM_DIR=~/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
