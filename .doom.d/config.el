@@ -19,7 +19,7 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "Fira Code" :size 32 :weight 'semi-light)
+(setq doom-font (font-spec :family "Fira Code" :size 14 :weight 'semi-light)
       doom-variable-pitch-font (font-spec :family "sans" :size 32))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
@@ -29,9 +29,9 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/Personal Documents/Org Mode/")
+(setq org-directory "~/Documents/Org Mode/")
 (after! org-agenda
-  (setq org-agenda-files (file-expand-wildcards "~/Personal Documents/Org Mode/*.org"))
+  (setq org-agenda-files (file-expand-wildcards "~/Documents/Org Mode/*.org"))
   (setq org-agenda-span 1)
   (setq org-agenda-start-day nil)
   (setq org-agenda-start-on-weekday nil)
@@ -87,9 +87,6 @@
         org-habit-following-days 1
         org-habit-graph-column 80
         org-habit-show-habits-only-for-today t))
-
-(after! org-roam
-  (setq org-roam-directory "~/Personal Documents/Org Mode/Roam"))
 
 (defun kev-agenda ()
   (interactive)

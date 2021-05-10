@@ -105,12 +105,6 @@ export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 export EDITOR=vim
 alias ed=$EDITOR
 
-# Load rbenv automatically by appending
-# the following to ~/.zshrc:
-
-export PATH=$HOME/.rbenv/bin:$PATH
-eval "$(rbenv init -)"
-
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null
 
@@ -136,3 +130,7 @@ export PATH=$HOME/.local/bin:$HOME/.emacs.d/bin:$HOME/.yarn/bin:$PATH
 
 export NVM_DIR=~/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+prime-run() {
+	__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia "$@"
+}
