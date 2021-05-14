@@ -46,6 +46,17 @@
 (setq org-startup-latex-with-latex-preview t)
 (setq org-blank-before-new-entry '((heading . always) (plain-list-item . auto)))
 
+(after! org-capture
+  (setq org-capture-templates
+        '(("t" "Todo" entry (file+headline "~/Documents/Org Mode/todo.org" "Inbox")
+	   "* TODO %?\n %a"))))
+
+(advice-add #'org-capture :around
+	                     (lambda (fun &rest args)
+			                          (letf! ((#'+org--restart-mode-h #'ignore))
+							                      (apply fun args))))
+
+
 ;; Gray out metatasks until subtasks are complete
 (setq org-enforce-todo-dependencies t)
 (setq org-log-done (quote time))
