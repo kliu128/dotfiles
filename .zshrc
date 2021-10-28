@@ -1,8 +1,5 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
-export ZSH="/home/kevin/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -100,13 +97,8 @@ source $ZSH/oh-my-zsh.sh
 
 alias k=kubectl
 
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-
 export EDITOR=vim
 alias ed=$EDITOR
-
-export GPG_TTY=$(tty)
-gpg-connect-agent updatestartuptty /bye >/dev/null
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -131,6 +123,8 @@ export PATH=$HOME/.local/bin:$HOME/.emacs.d/bin:$HOME/.yarn/bin:$PATH
 export NVM_DIR=~/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
-prime-run() {
-	__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia "$@"
-}
+source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+
+export CS107E=~/Projects/cs107e_home/cs107e.github.io/cs107e
+export PATH=$PATH:$CS107E/bin
