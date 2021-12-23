@@ -1,3 +1,4 @@
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -95,28 +96,26 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias k=kubectl
-
 export EDITOR=vim
 alias ed=$EDITOR
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/kevin/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/Users/kevin/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/kevin/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/kevin/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/Users/kevin/opt/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/kevin/opt/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/kevin/anaconda3/bin:$PATH"
+        export PATH="/Users/kevin/opt/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 #conda deactivate
 
-alias hmlb='ssh -t homelab-cluster TERM=xterm tmux attach'
+alias hmlb='mosh hmlb tmux attach'
 
 export PATH=$HOME/.local/bin:$HOME/.emacs.d/bin:$HOME/.yarn/bin:$PATH
 
@@ -125,6 +124,6 @@ export NVM_DIR=~/.nvm
 
 source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
 source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
-
-export CS107E=~/Projects/cs107e_home/cs107e.github.io/cs107e
-export PATH=$PATH:$CS107E/bin
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"
+alias k=kubectl
