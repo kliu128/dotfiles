@@ -126,4 +126,12 @@ source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh
 source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
-alias k=kubectl
+
+# Aliases
+# e.g. "alias k kubectl"
+function na() {
+	echo "alias $1='$2'" >> ~/.aliases
+	source ~/.aliases
+}
+
+source ~/.aliases

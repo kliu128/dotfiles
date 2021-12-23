@@ -1,0 +1,6 @@
+alias k=kubectl
+alias m='make'
+alias reload='source ~/.zshrc'
+alias gs='git status'
+alias gca='git commit -a'
+alias gp='git pull'
